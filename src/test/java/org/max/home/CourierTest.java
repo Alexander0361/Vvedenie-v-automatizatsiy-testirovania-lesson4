@@ -14,6 +14,7 @@ import java.sql.Statement;
 import java.util.Optional;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+//у Вас название класса CourierInfoEntity, а название файла CourierTest    
 public class CourierInfoEntity extends AbstractTest{
 
     @Test
@@ -70,6 +71,7 @@ public class CourierInfoEntity extends AbstractTest{
 
         final Query query = getSession()
                 .createSQLQuery("SELECT * FROM courier WHERE courier_id="+2).addEntity(CourierInfoEntity.class);
+        //тут не совпаают типы CourierInfoEntity и CustomersEntity
         CourierInfoEntity creditEntity = (CustomersEntity) query.uniqueResult();
         //then
         Assertions.assertNotNull(creditEntity);
